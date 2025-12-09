@@ -1,0 +1,5 @@
+Metadata-Version: 2.1
+Name: treefs
+Version: 1.0.0
+Summary: Filesystem generator/importer using tree, YAML, or JSON formats.
+License-File: LICENSE
