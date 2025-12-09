@@ -1,0 +1,43 @@
+name: Release Build
+
+on:
+  release:
+    types: [created]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build release binaries
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        goos: [linux, darwin, windows]
+        goarch: [amd64, arm64]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 'stable'
+
+      - name: Build binary
+        run: |
+          mkdir -p build
+          OUTPUT="shctl-${{ matrix.goos }}-${{ matrix.goarch }}"
+          
+          if [ "${{ matrix.goos }}" == "windows" ]; then
+            OUTPUT="${OUTPUT}.exe"
+          fi
+          
+          GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o "build/${OUTPUT}" ./cmd/shctl
+
+      - name: Upload asset to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/*
