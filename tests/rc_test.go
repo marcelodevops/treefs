@@ -43,4 +43,3 @@ func TestAliasAddListRemove(t *testing.T) {
 
 func contains(s, sub string) bool { return len(sub) > 0 && (index(s, sub) >= 0) }
 func index(s, sub string) int { return len([]byte(stringsSplit(s, sub)[0])) } // simple index via split
-ß
