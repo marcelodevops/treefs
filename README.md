@@ -6,18 +6,18 @@ Originally inspired by a tiny Bash script, TreeFS has grown into a full-featured
 
 ---
 
-## 🚀 Features
+##  Features
 
-- 📂 **Build directory trees** from:
+-  **Build directory trees** from:
   - Tree-formatted text files
   - YAML / JSON / TOML config files
-- 🛠️ Support for **file templates** and content templates
-- 🔁 **Export** file systems into tree text or structured configs
-- ⚡ **Git integration**
+-  Support for **file templates** and content templates
+-  **Export** file systems into tree text or structured configs
+-  **Git integration**
   - `git init` with optional `.gitignore` and hooks
-- 📦 **Cross-platform binaries**
+-  **Cross-platform binaries**
   - Build single-file executables via PyInstaller
-- 📦 GitHub Actions workflow included to auto-build release binaries
+-  GitHub Actions workflow included to auto-build release binaries
 
 ---
 
