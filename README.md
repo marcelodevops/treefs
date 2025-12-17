@@ -27,3 +27,39 @@ Install locally using `pip`:
 
 ```bash
 pip install .
+```
+
+## Usage
+- Build from a tree file
+```bash
+treefs build tree.txt myproject/
+
+```
+- Add optional templates and git setup
+```bash
+treefs build project.yaml myproj/ \
+  --templates ./templates \
+  --init-git \
+  --gitignore ./common_gitignore \
+  --git-hooks ./my-hooks
+```
+- Preview what would be created without writing to disk:
+```bash
+treefs build project.yaml myproj/ --dry-run
+```
+### Export project structure
+- Export a folder to a tree layout text:
+```bash
+treefs export-tree myproj/ tree.txt
+```
+- Or export to structured configs:
+```bash
+treefs export-config myproj/ project.yaml
+treefs export-config myproj/ project.json
+treefs export-config myproj/ project.toml
+```
+### Bundling a binary
+- If PyInstaller is installed, you can auto-bundle TreeFS:
+```bash
+treefs bundle treefs.py --name treefs
+```
